@@ -10,6 +10,17 @@
 *.userosscache
 *.sln.docstates
 
+# --- Leaf Pay: Ajustes para Frontend (Vite/React) ---
+dist/
+dist-ssr/
+*.local
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
