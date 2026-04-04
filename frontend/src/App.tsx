@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation, Trans } from 'react-i18next'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -6,6 +7,8 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const { t } = useTranslation('common')
+  const { i18n } = useTranslation();
 
   return (
     <>
@@ -15,17 +18,22 @@ function App() {
           <img src={reactLogo} className="framework" alt="React logo" />
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
+        <button onClick={() => i18n.changeLanguage(i18n.language === 'pt' ? 'en' : 'pt')}>
+          Mudar para {i18n.language === 'pt' ? 'Inglês' : 'Português'}
+        </button>
         <div>
           <h1>Get started</h1>
           <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            <Trans i18nKey="welcome.description">
+              Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            </Trans>
           </p>
         </div>
         <button
           className="counter"
           onClick={() => setCount((count) => count + 1)}
         >
-          Count is {count}
+          {t('welcome.counter', { count })}
         </button>
       </section>
 
@@ -36,8 +44,8 @@ function App() {
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
+          <h2>{t('sections.docs')}</h2>
+          <p>{t('sections.docs_subtitle')}</p>
           <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
@@ -57,8 +65,8 @@ function App() {
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
+          <h2>{t('sections.connect')}</h2>
+          <p>{t('sections.connect_subtitle')}</p>
           <ul>
             <li>
               <a href="https://github.com/vitejs/vite" target="_blank">
