@@ -64,6 +64,7 @@
 
 body {
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 h1,
@@ -108,4 +109,15 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* Paleta */
+@import 'tailwindcss';
+
+:root {
+  --color-primary: #20a637;
+  --color-dark: #041c0f;
+  --color-secondary: #80a65b;
+  --color-light: #cfddc2;
+  --color-background: #e8e9e4;
 }

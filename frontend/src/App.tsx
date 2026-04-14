@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { useTranslation, Trans } from 'react-i18next'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
+import reactLogo from './assets/react.svg';
+import viteLogo from './assets/vite.svg';
+import heroImg from './assets/hero.png';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const { t } = useTranslation('common')
+  const [count, setCount] = useState(0);
+  const { t } = useTranslation('common');
   const { i18n } = useTranslation();
 
   return (
@@ -18,7 +18,11 @@ function App() {
           <img src={reactLogo} className="framework" alt="React logo" />
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
-        <button onClick={() => i18n.changeLanguage(i18n.language === 'pt' ? 'en' : 'pt')}>
+        <button
+          onClick={() =>
+            i18n.changeLanguage(i18n.language === 'pt' ? 'en' : 'pt')
+          }
+        >
           Mudar para {i18n.language === 'pt' ? 'Inglês' : 'Português'}
         </button>
         <div>
@@ -123,7 +127,7 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
