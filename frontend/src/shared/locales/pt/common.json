@@ -1,0 +1,13 @@
+{
+  "welcome": {
+    "title": "Começar",
+    "description": "Edite <1>src/App.tsx</1> e salve para testar o HMR",
+    "counter": "A contagem é {{count}}"
+  },
+  "sections": {
+    "docs": "Documentação",
+    "docs_subtitle": "Suas perguntas, respondidas",
+    "connect": "Conecte-se conosco",
+    "connect_subtitle": "Junte-se à comunidade Vite"
+  }
+}

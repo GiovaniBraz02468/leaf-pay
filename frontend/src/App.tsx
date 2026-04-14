@@ -1,33 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
+import reactLogo from './assets/react.svg';
+import viteLogo from './assets/vite.svg';
+import heroImg from './assets/hero.png';
+import './App.css';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ANIM_VARIANTS_SYSTEM } from './shared/animations/variants';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const { t } = useTranslation('common');
+  const { i18n } = useTranslation();
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <AnimatePresence>
+        <section id="center">
+          <div className="hero">
+            <img
+              src={heroImg}
+              className="base"
+              width="170"
+              height="179"
+              alt=""
+            />
+            <img src={reactLogo} className="framework" alt="React logo" />
+            <img src={viteLogo} className="vite" alt="Vite logo" />
+          </div>
+
+          <motion.button
+            onClick={() =>
+              i18n.changeLanguage(i18n.language === 'pt' ? 'en' : 'pt')
+            }
+            variants={ANIM_VARIANTS_SYSTEM.buttons}
+            whileHover="hover"
+            whileTap="tap"
+            exit="exit"
+          >
+            Mudar para {i18n.language === 'pt' ? 'Inglês' : 'Português'}
+          </motion.button>
+
+          <div>
+            <h1>Get started</h1>
+            <p>
+              <Trans i18nKey="welcome.description">
+                Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+              </Trans>
+            </p>
+          </div>
+
+          <motion.button
+            variants={ANIM_VARIANTS_SYSTEM.buttons}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+            className="counter"
+            onClick={() => setCount((count) => count + 1)}
+          >
+            {t('welcome.counter', { count })}
+          </motion.button>
+        </section>
+      </AnimatePresence>
 
       <div className="ticks"></div>
 
@@ -36,8 +69,8 @@ function App() {
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
+          <h2>{t('sections.docs')}</h2>
+          <p>{t('sections.docs_subtitle')}</p>
           <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
@@ -53,20 +86,17 @@ function App() {
             </li>
           </ul>
         </div>
+
         <div id="social">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
+          <h2>{t('sections.connect')}</h2>
+          <p>{t('sections.connect_subtitle')}</p>
           <ul>
             <li>
               <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon">
                   <use href="/icons.svg#github-icon"></use>
                 </svg>
                 GitHub
@@ -74,11 +104,7 @@ function App() {
             </li>
             <li>
               <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon">
                   <use href="/icons.svg#discord-icon"></use>
                 </svg>
                 Discord
@@ -86,11 +112,7 @@ function App() {
             </li>
             <li>
               <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon">
                   <use href="/icons.svg#x-icon"></use>
                 </svg>
                 X.com
@@ -98,11 +120,7 @@ function App() {
             </li>
             <li>
               <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon">
                   <use href="/icons.svg#bluesky-icon"></use>
                 </svg>
                 Bluesky
@@ -115,7 +133,7 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

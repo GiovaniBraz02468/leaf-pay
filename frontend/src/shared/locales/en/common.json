@@ -1,0 +1,13 @@
+{
+    "welcome": {
+        "title": "Get started",
+        "description": "Edit <0>src/App.tsx</0> and save to test <1>HMR</1>",
+        "counter": "Count is {{count}}"
+    },
+    "sections": {
+        "docs": "Documentation",
+        "docs_subtitle": "Your questions, answered",
+        "connect": "Connect with us",
+        "connect_subtitle": "Join the Vite community"
+    }
+}
