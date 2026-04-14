@@ -25,8 +25,8 @@ public class Transaction
     public int CreditCardId { get; set; }
     public virtual CreditCard CreditCard { get; set; }
 
-    public int InstallmentId { get; set; }
-    public virtual InstallmentId InstallmentId { get; set; }
+    public int? InstallmentId { get; set; }
+    public virtual Installment? Installment { get; set; }
 
     // Se for um cofre (meta)
     public int GoalId { get; set; }

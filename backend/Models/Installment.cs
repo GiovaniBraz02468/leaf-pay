@@ -15,11 +15,11 @@ public class Installment
     public DateTime DueDate { get; set; } // data de vencimento da parcela atual
     public bool IsPaid { get; set; } = false; // se já foi paga
 
-    public int CreditCard { get; set; }
+    public int CreditCardId { get; set; }
     public virtual CreditCard CreditCard { get; set; } = null!;
 
-    public int TransactionId { get; set; } // link com a transação original
-    public virtual Transaction Transaction { get; set; }
+    public int TransactionId { get; set; }
+    public virtual Transaction Transaction { get; set; } = null!;
 
     public DateTime CreateAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; }

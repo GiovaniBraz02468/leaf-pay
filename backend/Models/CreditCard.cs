@@ -19,7 +19,7 @@ public class CreditCard
 
     // Soft delete
     public bool IsDeleted { get; set; } = false;
-    public DateTime CreatedAt { get; set; } = DateTime.utcNow;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; }
 
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
