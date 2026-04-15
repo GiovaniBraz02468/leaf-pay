@@ -14,7 +14,7 @@ export const LoginForm = () => {
       onSubmit={handleSubmit}
       className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md"
     >
-      <h2 className="text-2xl font-bold text-center mb-6 text-[var(--color-dark)]">
+      <h2 className="text-2xl font-bold text-center mb-6 text-dark">
         Entrar
       </h2>
 
@@ -22,7 +22,7 @@ export const LoginForm = () => {
         <input
           type="email"
           placeholder="Email"
-          className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+          className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -30,14 +30,14 @@ export const LoginForm = () => {
         <input
           type="password"
           placeholder="Senha"
-          className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+          className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
           type="submit"
-          className="bg-[var(--color-primary)] text-white p-3 rounded-lg font-semibold hover:opacity-90 transition"
+          className="bg-primary text-white p-3 rounded-lg font-semibold hover:opacity-90 transition"
         >
           Entrar
         </button>

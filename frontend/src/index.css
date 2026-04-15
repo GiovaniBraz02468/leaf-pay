@@ -1,9 +1,18 @@
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
 
-:root {
+@theme {
   --color-primary: #20a637;
   --color-dark: #041c0f;
   --color-secondary: #80a65b;
   --color-light: #cfddc2;
   --color-background: #e8e9e4;
+
+  --font-title: "Roboto", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+html {
+  font-family: var(--font-inter);
 }
