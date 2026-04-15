@@ -1,46 +1,50 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault();
     console.log({ email, password });
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md"
-    >
-      <h2 className="text-2xl font-bold text-center mb-6 text-dark">
-        Entrar
-      </h2>
-
-      <div className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit}>
+      <div className="flex flex-col gap-4 mt-5">
+        <label htmlFor="email">E-mail</label>
         <input
+          id="email"
           type="email"
-          placeholder="Email"
-          className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          placeholder="johndoe@hotmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
+        <label htmlFor="password">Senha</label>
         <input
+          id="password"
           type="password"
-          placeholder="Senha"
-          className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          placeholder="jn8dd%FCT$bj123"
+          autoComplete="off"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
+        <p className="text-end text-sm cursor-pointer">Esqueci a senha</p>
 
-        <button
-          type="submit"
-          className="bg-primary text-white p-3 rounded-lg font-semibold hover:opacity-90 transition"
-        >
+        <button type="submit" className="btn-primary mt-6">
           Entrar
         </button>
+        <button type="button" className="btn-secondary">
+          Entrar com o Google
+        </button>
+
+        <Link to="/register" className="underline text-center mt-3">
+          Não tem uma conta?
+        </Link>
       </div>
     </form>
   );

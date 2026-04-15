@@ -1,0 +1,5 @@
+@layer components {
+  .login-container {
+    @apply w-full bg-background p-8 shadow-md grid grid-cols-1 min-h-screen md:min-h-0 md:h-auto md:max-w-md md:rounded-2xl md:m-5;
+  }
+}

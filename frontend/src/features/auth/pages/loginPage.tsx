@@ -1,22 +1,23 @@
 import { LoginForm } from "../components/LoginForm";
-// import logo from '@/assets/logo/logo.png';
+import logo from "@/assets/icons/LOGO.svg";
 
 export const LoginPage = () => {
   return (
-    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
-      {/* LADO ESQUERDO */}
-      <div className="hidden md:flex flex-col justify-center items-center bg-primary text-white p-8">
-        <h1 className="text-3xl font-bold font-title">LeafPay</h1>
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="login-container">
+        <div className="flex flex-col items-center justify-center gap-5">
+          <img src={logo} alt="leafpay logo" />
+          <h1>Iniciar sessão</h1>
+          <p>Preencha com suas informações abaixo</p>
+          {/* LINHA PARA ESTILO */}
+          <div className="bg-primary h-0.5 w-62.5"></div>
+        </div>
 
-        <p className="text-sm mt-2 text-center max-w-xs">
-          Organize sua vida financeira de forma simples
-        </p>
+        {/* FORMULÁRIO */}
+        <div className="flex items-center justify-center">
+          <LoginForm />
+        </div>
       </div>
-
-      {/* LADO DIREITO */}
-      <div className="flex items-center justify-center bg-background p-6">
-        <LoginForm />
-      </div>
-    </div>
+    </main>
   );
 };
