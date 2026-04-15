@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import GoogleIcon from "../assets/icons/google-icon.svg";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault();
@@ -24,22 +27,36 @@ export const LoginForm = () => {
         />
 
         <label htmlFor="password">Senha</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="jn8dd%FCT$bj123"
-          autoComplete="off"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="relative">
+          <input
+            id="password"
+            type={isPasswordVisible ? "text" : "password"}
+            placeholder="jn8dd%FCT$bj123"
+            autoComplete="off"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            className="absolute top-4.5 right-3 text-gray-600"
+            onClick={() => setIsPasswordVisible((prev) => !prev)}
+          >
+            {isPasswordVisible ? <FaEye size={18} /> : <FaEyeSlash size={18} />}
+          </button>
+        </div>
+
         <p className="text-end text-sm cursor-pointer">Esqueci a senha</p>
 
         <button type="submit" className="btn-primary mt-6">
           Entrar
         </button>
-        <button type="button" className="btn-secondary">
+        <button
+          type="button"
+          className="btn-secondary flex justify-center gap-5"
+        >
           Entrar com o Google
+          <img src={GoogleIcon} alt="google icon" className="w-5" />
         </button>
 
         <Link to="/register" className="underline text-center mt-3">
