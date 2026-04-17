@@ -3,14 +3,14 @@ import logo from "@/assets/icons/LOGO.svg";
 
 export const LoginPage = () => {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="login-container">
+    <main className="login-container">
+      <div className="login-box">
         <div className="flex flex-col items-center justify-center gap-5">
           <img src={logo} alt="leafpay logo" />
           <h1>Iniciar sessão</h1>
           <p>Preencha com suas informações abaixo</p>
           {/* LINHA PARA ESTILO */}
-          <div className="bg-primary h-0.5 w-62.5"></div>
+          <div className="divider"></div>
         </div>
 
         {/* FORMULÁRIO */}
