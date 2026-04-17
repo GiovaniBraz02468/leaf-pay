@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import GoogleIcon from "../assets/icons/google-icon.svg";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
+// TODO -> TORNAR OS INPUTS REUTILILIZÁVEIS, PRINCIPALMENTE O DE SENHA
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const handleSubmit = (e: React.SubmitEvent) => {
+    // TODO -> VALIDAR OS INPUTS
     e.preventDefault();
     console.log({ email, password });
   };
@@ -46,7 +48,9 @@ export const LoginForm = () => {
           </button>
         </div>
 
-        <p className="text-end text-sm cursor-pointer">Esqueci a senha</p>
+        <Link to="/reset" className="text-end text-sm cursor-pointer">
+          Esqueci a senha
+        </Link>
 
         <button type="submit" className="btn-primary mt-6">
           Entrar
