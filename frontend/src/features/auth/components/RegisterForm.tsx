@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import GoogleIcon from "../assets/icons/google-icon.svg";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
@@ -47,10 +47,6 @@ export const LoginForm = () => {
           </button>
         </div>
 
-        <Link to="/reset" className="text-end text-sm cursor-pointer">
-          Esqueci a senha
-        </Link>
-
         <button type="submit" className="btn-primary mt-6">
           Entrar
         </button>
@@ -62,8 +58,8 @@ export const LoginForm = () => {
           <img src={GoogleIcon} alt="google icon" className="w-5" />
         </button>
 
-        <Link to="/register" className="underline text-center mt-3">
-          Não tem uma conta?
+        <Link to="/login" className="underline text-center mt-3">
+          Já tem uma conta?
         </Link>
       </div>
     </form>

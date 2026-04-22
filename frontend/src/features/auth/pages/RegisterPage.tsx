@@ -1,5 +1,5 @@
-import { LoginForm } from "../components/LoginForm";
 import logo from "@/assets/icons/LOGO.svg";
+import { RegisterForm } from "../components/RegisterForm";
 
 const RegisterPage = () => {
   return (
@@ -15,8 +15,7 @@ const RegisterPage = () => {
 
         {/* FORMULÁRIO */}
         <div className="flex items-center justify-center">
-          {/* CRIAR REGISTERFORM */}
-          <LoginForm />
+          <RegisterForm />
         </div>
       </div>
     </main>
