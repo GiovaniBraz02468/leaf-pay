@@ -1,23 +1,47 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import type z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ResetPasswordSchema } from "../lib/validation";
+
+type ResetPassword = z.infer<typeof ResetPasswordSchema>;
 
 export default function ResetPasswordPage() {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ResetPassword>({
+    resolver: zodResolver(ResetPasswordSchema),
+  });
+
+  const onSubmit = (data: ResetPassword) => {
+    console.log("nova senha:", data);
+  };
 
   return (
     <div>
       <h1 className="text-center mb-5">Redefinição de senha</h1>
 
-      <form action="#" className="flex flex-col gap-5 py-5">
+      <form
+        className="flex flex-col gap-5 py-5"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <label htmlFor="new-password">Digite sua nova senha</label>
+        {errors.password && <p className="error">{errors.password.message}</p>}
         <div className="relative">
           <input
-            id="password"
+            {...register("password")}
+            id="new-password"
             type={isPasswordVisible ? "text" : "password"}
             placeholder="jn8dd%FCT$bj123"
             autoComplete="off"
-            required
+            data-invalid={!!errors.password}
           />
+
           <button
             type="button"
             className="absolute top-4.5 right-3 text-gray-600"

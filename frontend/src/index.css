@@ -25,7 +25,7 @@ html {
   }
 
   input {
-    @apply border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-90 bg-white;
+    @apply border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-90 bg-white data-[invalid=true]:border-red-500 data-[invalid=true]:ring-0;
   }
 
   button {

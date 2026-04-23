@@ -10,4 +10,8 @@
   .divider {
     @apply bg-primary h-0.5 w-62.5;
   }
+
+  .error {
+    @apply text-red-500;
+  }
 }
