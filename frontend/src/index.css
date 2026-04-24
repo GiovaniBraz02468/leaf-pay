@@ -3,6 +3,11 @@
 
 @import 'tailwindcss';
 @import './features/auth/styles/auth.css';
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-primary: #20a637;
