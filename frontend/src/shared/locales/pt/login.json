@@ -1,7 +1,11 @@
 {
   "login": {
-    "login_title": "Bem-vindo ao LeafPay!",
-    "login_text": "Organize sua vida financeira de forma simples",
-    "login_button": "Fazer Login"
+    "login_title": "Iniciar sessão",
+    "login_text": "Preencha com suas informações abaixo",
+    "login_password": "Senha",
+    "login_forgot_password": "Esqueci a senha",
+    "login_button": "Entrar",
+    "login_button_google": "Entar com o Google",
+    "login_create": "Não tem uma conta?"
   }
 }

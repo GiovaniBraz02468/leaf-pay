@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import type z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ResetPasswordSchema } from "../lib/validation";
+import { motion } from "framer-motion";
+import { ANIM_VARIANTS_SYSTEM } from "@/shared/animations/variants";
 
 type ResetPassword = z.infer<typeof ResetPasswordSchema>;
 
@@ -44,14 +46,19 @@ export default function ResetPasswordPage() {
 
           <button
             type="button"
-            className="absolute top-4.5 right-3 text-gray-600"
+            className="absolute top-4.5 right-3 text-gray-600 hover:text-primary cursor-pointer"
             onClick={() => setIsPasswordVisible((prev) => !prev)}
           >
             {isPasswordVisible ? <FaEye size={18} /> : <FaEyeSlash size={18} />}
           </button>
         </div>
 
-        <button className="btn-primary">redefinir senha</button>
+        <motion.button
+          variants={ANIM_VARIANTS_SYSTEM.buttons}
+          initial="initial"
+          whileHover="hover"
+          whileTap="tap"
+          className="btn-primary cursor-pointer">redefinir senha</motion.button>
       </form>
     </div>
   );

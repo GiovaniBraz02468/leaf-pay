@@ -1,7 +1,11 @@
 {
   "login": {
-    "login_title": "Welcome to LeafPay!",
-    "login_text": "Organize your financial life in a simple way.",
-    "login_button": "Login"
+    "login_title": "Start session",
+    "login_text": "Fill in with your information below",
+    "login_password": "Password",
+    "login_forgot_password": "Forgot the password",
+    "login_button": "Login",
+    "login_button_google": "Login with Google",
+    "login_create": "Don't have an account?"
   }
 }
