@@ -5,6 +5,8 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserFormSchema, type UserForm } from "../lib/validation";
+import { motion } from "framer-motion"
+import { ANIM_VARIANTS_SYSTEM } from "@/shared/animations/variants";
 
 export const LoginForm = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
@@ -31,7 +33,7 @@ export const LoginForm = () => {
           {...register("email")}
           id="email"
           type="email"
-          placeholder="johndoe@hotmail.com"
+          placeholder="example@gmail.com"
           data-invalid={!!errors.email}
         />
 
@@ -49,29 +51,38 @@ export const LoginForm = () => {
 
           <button
             type="button"
-            className="absolute top-4.5 right-3 text-gray-600"
+            className="absolute top-4.5 right-3 text-gray-600 cursor-pointer hover:text-primary"
             onClick={() => setIsPasswordVisible((prev) => !prev)}
           >
             {isPasswordVisible ? <FaEye size={18} /> : <FaEyeSlash size={18} />}
           </button>
         </div>
 
-        <Link to="/reset" className="text-end text-sm cursor-pointer">
+        <Link to="/reset" className="text-end text-sm cursor-pointer hover:text-primary">
           Esqueci a senha
         </Link>
 
-        <button type="submit" className="btn-primary mt-6">
+        <motion.button type="submit"
+          variants={ANIM_VARIANTS_SYSTEM.buttons}
+          initial="initial"
+          whileHover="hover"
+          whileTap="tap"
+          className="btn-primary mt-6 cursor-pointer">
           Entrar
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           type="button"
-          className="btn-secondary flex justify-center gap-5"
+          variants={ANIM_VARIANTS_SYSTEM.buttons}
+          initial="initial"
+          whileHover="hover"
+          whileTap="tap"
+          className="btn-secondary hover:bg-white hover:text-primary flex justify-center gap-5 cursor-pointer"
         >
           Entrar com o Google
           <img src={GoogleIcon} alt="google icon" className="w-5" />
-        </button>
+        </motion.button>
 
-        <Link to="/register" className="underline text-center mt-3">
+        <Link to="/register" className="underline text-center mt-3 hover:text-primary">
           Não tem uma conta?
         </Link>
       </div>
