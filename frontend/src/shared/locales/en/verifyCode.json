@@ -1,0 +1,10 @@
+{
+  "verifyCode": {
+    "verifyCode_text": "We send a code to your email to reset your password.",
+    "verifyCode_description": "Enter verification code",
+    "verifyCode_noReceive": "Didn't receive the code?",
+    "verifyCode_resendButton": "Resend.",
+    "verifyCode_sendButton": "Send",
+    "verifyCode_registerButton": "Register"
+  }
+}
