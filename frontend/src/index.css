@@ -3,6 +3,11 @@
 
 @import 'tailwindcss';
 @import './features/auth/styles/auth.css';
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-primary: #20a637;
@@ -25,7 +30,7 @@ html {
   }
 
   input {
-    @apply border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-90 bg-white;
+    @apply border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-90 bg-white data-[invalid=true]:border-red-500 data-[invalid=true]:ring-0;
   }
 
   button {
