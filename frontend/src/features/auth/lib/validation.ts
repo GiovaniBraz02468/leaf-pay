@@ -1,13 +1,15 @@
 import { z } from "zod";
 
+// TODO -> REFACTOR THE ERROR MESSAGES TRANSLATIONS 
+
 const PasswordSchema = z
   .string()
-  .min(8, "A senha deve ter no mínimo 8 caracteres")
-  .regex(/[0-9]/, "Deve conter pelo menos um número");
+  .min(8, "errors.password_min")
+  .regex(/[0-9]/, "errors.password_num");
 
-  
+
 export const UserFormSchema = z.object({
-  email: z.email("Email inválido"),
+  email: z.email("errors.invalid_email"),
   password: PasswordSchema,
 });
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import GoogleIcon from "../assets/icons/google-icon.svg";
@@ -30,7 +31,7 @@ export const RegisterForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-4 mt-5">
         <label htmlFor="email">E-mail</label>
-        {errors.email && <p className="error">{errors.email.message}</p>}
+        {errors.email && <p className="error">{t(errors.email.message as any)}</p>}
         <input
           {...register("email")}
           id="email"
@@ -40,7 +41,7 @@ export const RegisterForm = () => {
         />
 
         <label htmlFor="password">{t("login_password")}</label>
-        {errors.password && <p className="error">{errors.password.message}</p>}
+        {errors.password && <p className="error">{t(errors.password.message as any)}</p>}
         <div className="relative">
           <input
             {...register("password")}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -35,7 +36,7 @@ export default function ResetPasswordPage() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <label htmlFor="new-password">{t("passwordReset.newPassword")}</label>
-        {errors.password && <p className="error">{errors.password.message}</p>}
+        {errors.password && <p className="error">{t(errors.password.message as any)}</p>}
         <div className="relative">
           <input
             {...register("password")}
