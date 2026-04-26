@@ -7,18 +7,25 @@ import {
 } from "@/components/ui/input-otp";
 import { motion } from "framer-motion";
 import { ANIM_VARIANTS_SYSTEM } from "@/shared/animations/variants";
+import { useTranslation } from "react-i18next";
 
 const MotionLink = motion(Link);
 
 export default function VerifyCodePage() {
+  const { t } = useTranslation("passwordReset");
+
   return (
     <div className="flex flex-col items-center text-center gap-5">
       <div className="flex gap-1">
-        <p>Enviamos um código para seu e-mail para redefinir sua senha.</p>
+        <p>{t("verifyCode.text")}</p>
       </div>
 
-      <p>Insira o código de verificação</p>
-      <InputOTP maxLength={4} pattern={REGEXP_ONLY_DIGITS} className="cursor-pointer" >
+      <p>{t("verifyCode.description")}</p>
+      <InputOTP
+        maxLength={4}
+        pattern={REGEXP_ONLY_DIGITS}
+        className="cursor-pointer"
+      >
         <InputOTPGroup>
           <InputOTPSlot index={0} />
           <InputOTPSlot index={1} />
@@ -27,8 +34,11 @@ export default function VerifyCodePage() {
         </InputOTPGroup>
       </InputOTP>
 
-      <small >
-        Não recebeu o código? <span className="hover:text-primary cursor-pointer">Reenvie.</span>
+      <small>
+        {t("verifyCode.noReceive")}{" "}
+        <span className="text-primary cursor-pointer hover:underline">
+          {t("verifyCode.resend_button")}
+        </span>
       </small>
 
       <MotionLink
@@ -39,7 +49,7 @@ export default function VerifyCodePage() {
         whileTap="tap"
         className="btn-primary w-90 mx-auto flex items-center justify-center cursor-pointer border-none outline-none uppercase"
       >
-        enviar
+        {t("sendButton")}
       </MotionLink>
     </div>
   );

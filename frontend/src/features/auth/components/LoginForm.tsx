@@ -10,7 +10,7 @@ import { ANIM_VARIANTS_SYSTEM } from "@/shared/animations/variants";
 import { useTranslation } from "react-i18next";
 
 export const LoginForm = () => {
-  const { t } = useTranslation("login");
+  const { t } = useTranslation("auth");
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const {

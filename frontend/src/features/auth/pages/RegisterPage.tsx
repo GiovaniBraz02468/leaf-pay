@@ -6,7 +6,7 @@ import LanguageSwitch from "@/components/LanguageSwitch";
 import { useTranslation } from "react-i18next";
 
 const RegisterPage = () => {
-  const { t } = useTranslation("login");
+  const { t } = useTranslation("auth");
 
   return (
     <main className="login-container">
@@ -26,7 +26,7 @@ const RegisterPage = () => {
 
           <h1>{t("signup.title")}</h1>
           <p>{t("login_text")}</p>
-          
+
           {/* LINHA PARA ESTILO */}
           <motion.div
             variants={ANIM_VARIANTS_SYSTEM.textReveal}

@@ -10,7 +10,7 @@ import { ANIM_VARIANTS_SYSTEM } from "@/shared/animations/variants";
 import { useTranslation } from "react-i18next";
 
 export const RegisterForm = () => {
-  const { t } = useTranslation("login");
+  const { t } = useTranslation("auth");
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const {
@@ -60,12 +60,14 @@ export const RegisterForm = () => {
           </button>
         </div>
 
-        <motion.button type="submit"
+        <motion.button
+          type="submit"
           variants={ANIM_VARIANTS_SYSTEM.buttons}
           initial="initial"
           whileHover="hover"
           whileTap="tap"
-          className="btn-primary mt-6 cursor-pointer">
+          className="btn-primary mt-6 cursor-pointer"
+        >
           {t("signup.button")}
         </motion.button>
 
@@ -81,7 +83,10 @@ export const RegisterForm = () => {
           <img src={GoogleIcon} alt="google icon" className="w-5" />
         </motion.button>
 
-        <Link to="/login" className="underline text-center mt-3 hover:text-primary cursor-pointer">
+        <Link
+          to="/login"
+          className="underline text-center mt-3 hover:text-primary cursor-pointer"
+        >
           {t("signup.signin")}
         </Link>
       </div>

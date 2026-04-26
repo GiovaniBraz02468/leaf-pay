@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitch from "@/components/LanguageSwitch";
 
 export const LoginPage = () => {
-  const { t } = useTranslation("login");
+  const { t } = useTranslation("auth");
 
   return (
     <main className="login-container">
@@ -20,7 +20,9 @@ export const LoginPage = () => {
             variants={ANIM_VARIANTS_SYSTEM.logo}
             initial="initial"
             animate="animate"
-            src={logo} alt="leafpay logo" />
+            src={logo}
+            alt="leafpay logo"
+          />
 
           <h1>{t("signin.title")}</h1>
           <p>{t("login_text")}</p>
@@ -29,8 +31,8 @@ export const LoginPage = () => {
             variants={ANIM_VARIANTS_SYSTEM.textReveal}
             initial="hidden"
             animate="animate"
-            className="divider">
-          </motion.div>
+            className="divider"
+          ></motion.div>
         </div>
 
         {/* FORMULÁRIO */}
@@ -38,6 +40,6 @@ export const LoginPage = () => {
           <LoginForm />
         </div>
       </div>
-    </main >
+    </main>
   );
 };
