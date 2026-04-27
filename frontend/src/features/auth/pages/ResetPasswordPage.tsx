@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -6,10 +7,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ResetPasswordSchema } from "../lib/validation";
 import { motion } from "framer-motion";
 import { ANIM_VARIANTS_SYSTEM } from "@/shared/animations/variants";
+import { useTranslation } from "react-i18next";
 
 type ResetPassword = z.infer<typeof ResetPasswordSchema>;
 
 export default function ResetPasswordPage() {
+  const { t } = useTranslation("passwordReset");
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const {
@@ -26,14 +29,14 @@ export default function ResetPasswordPage() {
 
   return (
     <div>
-      <h1 className="text-center mb-5">Redefinição de senha</h1>
+      <h1 className="text-center mb-5">{t("passwordReset.title")}</h1>
 
       <form
         className="flex flex-col gap-5 py-5"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <label htmlFor="new-password">Digite sua nova senha</label>
-        {errors.password && <p className="error">{errors.password.message}</p>}
+        <label htmlFor="new-password">{t("passwordReset.newPassword")}</label>
+        {errors.password && <p className="error">{t(errors.password.message as any)}</p>}
         <div className="relative">
           <input
             {...register("password")}
@@ -58,7 +61,10 @@ export default function ResetPasswordPage() {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
-          className="btn-primary cursor-pointer">redefinir senha</motion.button>
+          className="btn-primary cursor-pointer"
+        >
+          {t("passwordReset.reset_button")}
+        </motion.button>
       </form>
     </div>
   );
